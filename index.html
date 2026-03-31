@@ -14,12 +14,12 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <!-- ===================== SPLASH ===================== -->
     <div id="splash" class="splash" aria-hidden="false" aria-busy="true" aria-live="polite">
+        <div id="splash-aurora" class="aurora-container" aria-hidden="true"></div>
         <div class="splash__ambient" aria-hidden="true">
             <div class="splash__orb splash__orb--a"></div>
             <div class="splash__orb splash__orb--b"></div>
@@ -28,7 +28,7 @@
         <div class="splash__grid" aria-hidden="true"></div>
         <div class="splash__vignette" aria-hidden="true"></div>
         <div class="splash__inner">
-            <p class="splash__eyebrow">UX · HCI · Design</p>
+            <p class="splash__eyebrow" id="splash-eyebrow">UX · HCI · Design</p>
             <div class="splash__text" id="splash-text" aria-label="Krysthel Lua Peterus">Krysthel Lua Peterus</div>
             <p class="splash__tagline" id="splash-tagline">Research, interface, and how people think.</p>
             <div class="splash__progress" aria-hidden="true">
@@ -40,33 +40,11 @@
     </div>
 
     <div id="app-shell" class="app-shell">
-    <!-- ===================== DOCK (NAVBAR) ===================== -->
-    <div class="dock-container">
-        <div class="dock">
-            <a href="#about" class="dock-item" data-tooltip="About Me">
-                <i class="fa-solid fa-user"></i>
-            </a>
-            <a href="#projects" class="dock-item" data-tooltip="My Work">
-                <i class="fa-solid fa-folder-open"></i>
-            </a>
-            <a href="#skills" class="dock-item" data-tooltip="Skills">
-                <i class="fa-solid fa-terminal"></i>
-            </a>
-            <a href="#contact" class="dock-item" data-tooltip="Contact">
-                <i class="fa-solid fa-envelope"></i>
-            </a>
-            <div class="dock-divider"></div>
-            <a href="/files/waa_resume.pdf" class="dock-item" data-tooltip="View Resume" id="dock-resume" target="_blank" rel="noopener noreferrer" download="waa_resume.pdf">
-                <i class="fa-solid fa-file-pdf"></i>
-            </a>
-        </div>
-    </div>
-
     <!-- ===================== HERO ===================== -->
     <section class="hero" id="home">
 
         <!-- SoftAurora WebGL background -->
-        <div id="aurora-bg" class="hero__aurora" aria-hidden="true"></div>
+        <div id="aurora-bg" class="hero__aurora color-bends-container" aria-hidden="true"></div>
 
         <!-- Overlay so text is readable over the aurora -->
         <div class="hero__overlay" aria-hidden="true"></div>
@@ -121,7 +99,7 @@
 
             <div class="about__grid">
                 <figure class="about__photo">
-                    <img src="public/waa.png" alt="Krysthel Lua Peterus" width="560" height="700" loading="eager" decoding="async">
+                    <img src="/waa.png" alt="Krysthel Lua Peterus" width="560" height="700" loading="eager" decoding="async">
                 </figure>
                 <div class="about__copy">
                     <div class="about__intro reveal-slide-up">
@@ -241,7 +219,7 @@
 
                 <div class="project__visual reveal-fade" style="--delay:.2s">
                     <div class="mockup-frame" data-parallax="-0.08">
-                        <img src="public/fskpm.png" alt="MyFSKPM App Mockup" loading="lazy">
+                        <img src="/fskpm.png" alt="MyFSKPM App Mockup" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -277,14 +255,67 @@
 
                 <div class="project__visual reveal-fade" style="--delay:.2s">
                     <div class="mockup-frame mockup-frame--teal" data-parallax="-0.08">
-                        <img src="public/para.png" alt="Kampung Trombol App Mockup" loading="lazy">
+                        <img src="/para.png" alt="Kampung Trombol App Mockup" loading="lazy">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Project detail modals -->
+    <!-- ===================== CONTACT ===================== -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact__card reveal-slide-up">
+                <p class="eyebrow">Contact</p>
+                <h2 class="contact__headline">Say hello.</h2>
+                <p class="contact__sub">Questions, ideas, or collaboration—send a note.</p>
+                <div class="contact__actions">
+                    <a href="mailto:krysthel@example.com" class="btn btn--primary" id="contact-email-btn">
+                        <i class="fa-solid fa-envelope"></i> Email
+                    </a>
+                    <a href="#" class="btn btn--ghost" id="contact-linkedin-btn">
+                        <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+        <div class="container footer__inner">
+            <span class="footer__logo">Krysthel</span>
+            <p class="footer__copy">© 2026 Krysthel Lua Peterus</p>
+            <div class="footer__links">
+                <a href="#home">Top ↑</a>
+            </div>
+        </div>
+    </footer>
+    </div><!-- /#app-shell -->
+
+    <!-- Dock outside #app-shell: .app-shell uses transform, which breaks viewport-fixed positioning for descendants -->
+    <div class="dock-container">
+        <div class="dock">
+            <a href="#about" class="dock-item" data-tooltip="About Me">
+                <i class="fa-solid fa-user"></i>
+            </a>
+            <a href="#projects" class="dock-item" data-tooltip="My Work">
+                <i class="fa-solid fa-folder-open"></i>
+            </a>
+            <a href="#skills" class="dock-item" data-tooltip="Skills">
+                <i class="fa-solid fa-terminal"></i>
+            </a>
+            <a href="#contact" class="dock-item" data-tooltip="Contact">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+            <div class="dock-divider"></div>
+            <a href="/files/waa_resume.pdf" class="dock-item" data-tooltip="View Resume" id="dock-resume" target="_blank" rel="noopener noreferrer" download="waa_resume.pdf">
+                <i class="fa-solid fa-file-pdf"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Project modals outside #app-shell so position:fixed is viewport-relative (.app-shell uses transform) -->
     <div id="modal-fskpm" class="project-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-fskpm-title" data-lenis-prevent>
         <button type="button" class="project-modal__scrim" data-close-modal="fskpm" aria-label="Close project details"></button>
         <div class="project-modal__panel">
@@ -317,7 +348,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Figma URL: match src/config/figmaLinks.js (FSKPM) -->
             <div class="project-modal__footer">
                 <a href="https://www.figma.com/proto/3I74gCaayHDbrHQD62kB2W/MyFSKPM?node-id=1-2" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
                     Open Figma prototype <i class="fa-solid fa-arrow-up-right-from-square btn-icon" aria-hidden="true"></i>
@@ -364,44 +394,7 @@
         </div>
     </div>
 
-    <!-- ===================== CONTACT ===================== -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="contact__card reveal-slide-up">
-                <p class="eyebrow">Contact</p>
-                <h2 class="contact__headline">Say hello.</h2>
-                <p class="contact__sub">Questions, ideas, or collaboration—send a note.</p>
-                <div class="contact__actions">
-                    <a href="mailto:krysthel@example.com" class="btn btn--primary" id="contact-email-btn">
-                        <i class="fa-solid fa-envelope"></i> Email
-                    </a>
-                    <a href="#" class="btn btn--ghost" id="contact-linkedin-btn">
-                        <i class="fa-brands fa-linkedin-in"></i> LinkedIn
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===================== FOOTER ===================== -->
-    <footer class="footer">
-        <div class="container footer__inner">
-            <span class="footer__logo">Krysthel</span>
-            <p class="footer__copy">© 2026 Krysthel Lua Peterus</p>
-            <div class="footer__links">
-                <a href="#home">Top ↑</a>
-            </div>
-        </div>
-    </footer>
-    </div><!-- /#app-shell -->
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
-    <script src="js/gsap.min.js"></script>
-    <script src="js/lenis.min.js"></script>
-    <!-- ColorBends WebGL background -->
-    <script src="js/color-bends.js"></script>
-    <script src="js/text-type.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/project-detail.js"></script>
+    <script type="module" src="/src/main.js"></script>
 </body>
 </html>
+

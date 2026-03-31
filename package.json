@@ -5,21 +5,16 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "dev:react": "vite --open /react.html",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@gsap/react": "^2.1.1",
     "gsap": "^3.12.5",
     "lenis": "^1.1.2",
     "ogl": "^1.0.11",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
     "three": "^0.160.0"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.3.1",
     "vite": "^5.4.1"
   }
 }
