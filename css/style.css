@@ -984,11 +984,6 @@ body.app-ready .app-shell {
   body.app-ready .app-shell {
     opacity: 1;
   }
-
-  .dock-container {
-    transition-duration: 0.01ms;
-    transition-delay: 0s;
-  }
 }
 
 /* ── 14. Responsive ───────────────────────────────────────── */
@@ -1031,20 +1026,15 @@ body.app-ready .app-shell {
 }
 
 /* ── 15. Dock (macOS Style) ───────────────────────────────── */
+/* Always visible: splash (z-index 9999) covers until exit; do not tie opacity to
+   body.app-ready — if JS stalls, the dock would stay invisible. */
 .dock-container {
   position: fixed;
   bottom: calc(2rem + env(safe-area-inset-bottom, 0px));
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1000;
+  z-index: 9000;
   pointer-events: none;
-  opacity: 0;
-  transition:
-    opacity calc(var(--app-reveal-dur) * 0.85) var(--app-reveal-ease) 0.12s;
-}
-
-body.app-ready .dock-container {
-  opacity: 1;
 }
 
 .dock {
@@ -1078,9 +1068,27 @@ body.app-ready .dock-container {
 }
 
 .dock-item i {
+  display: inline-block;
+  font-style: normal;
   font-size: 1.4rem;
+  line-height: 1;
   color: #fff;
-  transition: transform 0.2s;
+  transition: transform 0.2s, color 0.2s;
+}
+
+/* Resume: inline SVG (see index.html — avoids FA 6.5.0 PDF/PNG glyph bug) */
+.dock-item__icon-svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  display: block;
+}
+
+.dock-item--pdf .dock-item__icon-svg {
+  color: #ff6b6b;
+}
+
+.dock-item--pdf:hover .dock-item__icon-svg {
+  color: #ff9a9a;
 }
 
 /* Tooltip */
@@ -1155,6 +1163,15 @@ body.app-ready .dock-container {
   }
   .dock-item i {
     font-size: 1.2rem;
+  }
+
+  .dock-item__icon-svg {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .dock-item--pdf .dock-item__icon-svg {
+    color: #ff6b6b;
   }
 }
 
