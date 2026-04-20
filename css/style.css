@@ -1922,4 +1922,98 @@ body.app-ready .app-shell {
     max-width: none;
     min-width: 0;
   }
+   /* ── 18. Apple-Inspired Artwork Hover ────────────────────── */
+
+/* Container to handle the scaling logic */
+.project-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+/* The Hover Card - Using Apple's Glassmorphism */
+.hover-card {
+  position: absolute;
+  inset: 12px;
+  background: rgba(41, 151, 255, 0.85); /* Your --c-accent with transparency */
+  -webkit-backdrop-filter: blur(15px) saturate(160%);
+  backdrop-filter: blur(15px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-md);
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--sp-md);
+  
+  /* Animation: Apple-style "Spring" popup */
+  opacity: 0;
+  transform: scale(0.94) translateY(5px);
+  transition: opacity 0.4s var(--ease-out), transform 0.5s var(--ease-spring);
+  z-index: 20;
+  pointer-events: none;
+}
+
+/* Trigger the Reveal */
+.project-wrapper:hover .hover-card {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  pointer-events: all;
+}
+
+/* Typography using your Inter font stack */
+.hover-title {
+  font-size: 1.4rem;
+  font-weight: var(--fw-bold);
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.25rem;
+}
+
+.hover-stack {
+  font-size: 0.7rem;
+  font-weight: var(--fw-medium);
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+}
+
+/* Button matching your Apple .btn style */
+.hover-btn {
+  background: #fff;
+  color: #000;
+  padding: 0.6rem 1.4rem;
+  border-radius: 980px;
+  font-size: 0.85rem;
+  font-weight: var(--fw-semibold);
+  transition: transform 0.2s var(--ease-out), box-shadow 0.2s;
+}
+
+.hover-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Floating Date Tag (Apple "Capsule" Style) */
+.hover-date {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--c-bg);
+  color: var(--c-text);
+  padding: 0.35rem 0.9rem;
+  border-radius: 980px;
+  font-size: 0.65rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.05em;
+  border: 1px solid var(--c-border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
+}
 }
