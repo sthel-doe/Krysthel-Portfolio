@@ -827,17 +827,17 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
 .project-four-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* Forces 4 boxes in a row */
-  gap: 2rem;
+  gap: 1.5rem;
   margin-top: 3.5rem;
 }
 
 .projects-container {
   /* Aligns with your other site sections, e.g., 'About' */
-  max-width: 1200px; 
+  max-width: 1000px; 
   margin-inline: auto; /* Perfectly centers the content on the screen */
   
   /* CRITICAL: Adds the equal gaps on the far left and right */
-  padding-inline: 4rem; /* 64px, adjust as needed for wider gaps */
+  padding-inline: 6rem; /* 64px, adjust as needed for wider gaps */
 }
 
 /* --- 2. The Box (The Anchor) --- */
@@ -846,7 +846,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   background: var(--c-surface);
   border: 1px solid var(--c-border);
   border-radius: var(--radius-xl);
-  aspect-ratio: 3 / 2; /* Keeps them as small squares */
+  aspect-ratio: 16 / 9; /* Keeps them as small squares */
   overflow: hidden;    /* CRITICAL: This hides the blue box until hover */
   transition: transform 0.2s var(--ease-out);
 }
