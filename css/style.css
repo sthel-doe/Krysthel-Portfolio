@@ -835,9 +835,24 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   /* Aligns with your other site sections, e.g., 'About' */
   max-width: 1000px; 
   margin-inline: auto; /* Perfectly centers the content on the screen */
-  
   /* CRITICAL: Adds the equal gaps on the far left and right */
   padding-inline: 6rem; /* 64px, adjust as needed for wider gaps */
+  text-align: left;
+}
+
+.section-headline {
+  /* Remove any default browser padding/margin that might be pushing it */
+  margin-left: 0;
+  padding-left: 0;
+  /* Ensure it doesn't have a specific width or transform pushing it right */
+  display: block; 
+  width: 100%;
+}
+
+.eyebrow {
+  /* Ensure the eyebrow is also zeroed out on the left */
+  margin-left: 0;
+  display: inline-block;
 }
 
 /* --- 2. The Box (The Anchor) --- */
